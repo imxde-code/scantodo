@@ -50,6 +50,7 @@ scantodo [dir] [options]
 | `-f, --format <format>` | Output format: `table`, `json`, `markdown` | `table` |
 | `-i, --ignore <dirs...>` | Extra directories to ignore | `[]` |
 | `-t, --types <types...>` | Comment types to scan for | All types |
+| `--no-fail` | Always exit with code `0` even when items are found | |
 | `-V, --version` | Print version | |
 | `-h, --help` | Show help | |
 
