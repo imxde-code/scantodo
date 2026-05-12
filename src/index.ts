@@ -21,7 +21,8 @@ program
     'Comment types to include (TODO FIXME HACK NOTE XXX)',
     ALL_TYPES,
   )
-  .action((dir: string, options: { format: string; ignore: string[]; types: string[] }) => {
+  .option('--no-fail', 'Always exit with code 0 even when items are found')
+  .action((dir: string, options: { format: string; ignore: string[]; types: string[]; fail: boolean }) => {
     const ignore = [...DEFAULT_IGNORE, ...options.ignore];
     const types = options.types.map((t) => t.toUpperCase()) as TodoType[];
 
@@ -30,7 +31,7 @@ program
 
     console.log(output);
 
-    if (options.format === 'table' && matches.length > 0) {
+    if (options.fail && matches.length > 0) {
       process.exit(1);
     }
   });
