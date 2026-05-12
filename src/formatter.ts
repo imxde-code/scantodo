@@ -21,6 +21,16 @@ export function format(matches: TodoMatch[], outputFormat: OutputFormat): string
   }
 }
 
+export function groupByFile(matches: TodoMatch[]): Map<string, TodoMatch[]> {
+  const map = new Map<string, TodoMatch[]>();
+  for (const m of matches) {
+    const group = map.get(m.file) ?? [];
+    group.push(m);
+    map.set(m.file, group);
+  }
+  return map;
+}
+
 function formatTable(matches: TodoMatch[]): string {
   if (matches.length === 0) {
     return chalk.green('\n  ✓ Clean! No TODO comments found.\n');
