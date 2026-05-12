@@ -1,0 +1,36 @@
+{
+  "name": "scantodo",
+  "version": "1.0.0",
+  "description": "A CLI tool that scans your codebase for TODO, FIXME, HACK, and NOTE comments and generates clean reports",
+  "main": "dist/index.js",
+  "bin": {
+    "scantodo": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "todo",
+    "fixme",
+    "cli",
+    "scanner",
+    "developer-tools",
+    "productivity",
+    "code-quality"
+  ],
+  "author": "imxde-code",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cli-table3": "^0.6.3",
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}
